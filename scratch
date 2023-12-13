@@ -1,0 +1,60 @@
+import openai
+import requests
+import json
+import os
+import shutil
+
+# Set up the OpenAI API                                                                                                                                
+openai.api_key = ''
+
+def get_response(prompt):
+    response = openai.ChatCompletion.create(
+        model="gpt-4-1106-preview",
+        messages=[
+            {"role": "user", "content": prompt},
+        ]
+    )
+    return response.choices[0]['message']['content']
+
+
+
+import sys
+print(get_response(open(sys.argv[1]).read()))
+
+
+
+import requests
+requests.post("https://api.manifold.markets/v0/bet", '{"outcome":"NO",   "contractId":"gpt4resolving-was-tesla-the-most-ac-fc975faf6d6a"}')
+
+import requests
+
+# URL and payload                                                                                                                                      
+url = "https://api.manifold.markets/v0/resolve"
+payload = {
+    "outcome": "NO",
+    "contractSlug": "gpt4resolving-was-tesla-the-most-ac-fc975faf6d6a"
+}
+
+
+
+# Authorization header                                                                                                                                 
+headers = {
+    "Authorization": "Key .."
+}
+
+
+print(requests.get("https://api.manifold.markets/v0/markets?userId=U7riHiuE0hdW3TLw3PFcxJ31Xq03", headers=headers).text)
+
+print(requests.get("https://api.manifold.markets/v0/me", headers=headers).text)
+
+# Make the POST request                                                                                                                                
+response = requests.post(url, json=payload, headers=headers)
+
+# Print the response                                                                                                                                   
+print(response.text)
+
+
+
+
+
+
